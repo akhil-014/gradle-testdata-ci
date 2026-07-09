@@ -1,0 +1,54 @@
+name: Order Repository CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  order-test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.4
+
+        env:
+          MYSQL_DATABASE: testorderdb
+          MYSQL_ROOT_PASSWORD: admin
+
+        ports:
+          - 3306:3306
+
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost -padmin"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 22
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make Gradle Wrapper Executable
+        working-directory: Gradle_Project
+        run: chmod +x gradlew
+
+      - name: Run Order Test
+        working-directory: Gradle_Project
+        run: ./gradlew OrderTest
+        env:
+          JAVA_TOOL_OPTIONS: >
+            -Ddb.url=jdbc:mysql://localhost:3306/testorderdb
+            -Ddb.user=root
+            -Ddb.password=admin
