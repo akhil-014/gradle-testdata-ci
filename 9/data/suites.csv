@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Categories split flaky, test and product failures so each bucket has an error","56","categoriesSpecificFlakyRuleBeforeGenericBuckets()","","2026-07-10","failed","2026-07-10","","com.ust.sdet.tests.AllureReportInsightTest","com.ust.sdet.tests.AllureReportInsightTest","categoriesSpecificFlakyRuleBeforeGenericBuckets"
+"","135","createsOrder()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","createsOrder"
+"","87","countsOrders()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","countsOrders"
