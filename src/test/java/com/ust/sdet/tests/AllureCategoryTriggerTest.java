@@ -15,8 +15,7 @@ public class AllureCategoryTriggerTest {
     @Story("Flaky Category")
     @Severity(SeverityLevel.NORMAL)
     void shouldAppearInFlakyCategory() {
-        List<String> signals = List.of("status", "trend", "category split", "environment");
-        assertFalse(signals.contains("trend"), "timeout");
+        throw new RuntimeException("timeout");
     }
 
     @Test
