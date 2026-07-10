@@ -3,7 +3,7 @@
     "name": "Flaky tests",
     "matchedStatuses": ["failed", "broken"],
     "messageRegex": ".*timeout.*",
-    "flaky": true
+    "flaky": false
   },
   {
     "name": "Test defects {broken}",
