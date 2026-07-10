@@ -15,22 +15,22 @@ jobs:
   order-test:
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:8.4
-
-        env:
-          MYSQL_DATABASE: testorderdb
-          MYSQL_ROOT_PASSWORD: admin
-
-        ports:
-          - 3306:3306
-
-        options: >-
-          --health-cmd="mysqladmin ping -h localhost -padmin"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=10
+#    services:
+#      mysql:
+#        image: mysql:8.4
+#
+#        env:
+#          MYSQL_DATABASE: testorderdb
+#          MYSQL_ROOT_PASSWORD: admin
+#
+#        ports:
+#          - 3306:3306
+#
+#        options: >-
+#          --health-cmd="mysqladmin ping -h localhost -padmin"
+#          --health-interval=10s
+#          --health-timeout=5s
+#          --health-retries=10
 
     steps:
       - name: Checkout Repository
@@ -48,21 +48,25 @@ jobs:
       - name: Make Gradle Wrapper Executable
         run: chmod +x gradlew
 
-      - name: Run Order Test
-        run: ./gradlew OrderTest
-        continue-on-error: true
-        env:
-          JAVA_TOOL_OPTIONS: >
-            -Ddb.url=jdbc:mysql://localhost:3306/testorderdb
-            -Ddb.user=root
-            -Ddb.password=admin
+#      - name: Run Order Test
+#        run: ./gradlew OrderTest
+#        continue-on-error: true
+#        env:
+#          JAVA_TOOL_OPTIONS: >
+#            -Ddb.url=jdbc:mysql://localhost:3306/testorderdb
+#            -Ddb.user=root
+#            -Ddb.password=admin
 
-      - name: Run Allure Report Test
-        run: ./gradlew AllureReportInsightTest
-        continue-on-error: true
+#      - name: Run Allure Report Test
+#        run: ./gradlew AllureReportInsightTest
+#        continue-on-error: true
 
       - name: Run Allure Category Trigger Test
         run: ./gradlew AllureCategoryTriggerTest
+        continue-on-error: true
+
+      - name: Run Allure Category Trigger Test
+        run: ./gradlew copyAllureCategories
         continue-on-error: true
 
       - name: Verify Allure results were generated

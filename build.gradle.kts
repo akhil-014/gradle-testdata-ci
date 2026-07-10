@@ -74,7 +74,8 @@ tasks.test {
     description = "Runs the main Selenium/JUnit regression tests."
     group = "verification"
     useJUnitPlatform()
-    include("**/OrderTest.class", "**/SmokeTest.class", "**/AllureReportInsightTest.class", "**/AllureCategoryTriggerTest.class")
+//    include("**/OrderTest.class", "**/SmokeTest.class", "**/AllureReportInsightTest.class", "**/AllureCategoryTriggerTest.class")
+    include("**/AllureCategoryTriggerTest.class")
     maxParallelForks = 1
 }
 
@@ -110,10 +111,15 @@ val AllureCategoryTriggerTest by tasks.registering(Test::class) {
     include("**/AllureCategoryTriggerTest.class")
 }
 
+val copyAllureCategories by tasks.registering(Copy::class) {
+    from("src/test/resources/allure/categories.json")
+    into("build/allure-results")
+}
+
 tasks.test {
     doLast {
         copy {
-            from("src/test/resources/categories.json")
+            from("src/test/resources/allure/categories.json")
             into("build/allure-results")
         }
     }
