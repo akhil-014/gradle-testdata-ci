@@ -110,6 +110,15 @@ val AllureCategoryTriggerTest by tasks.registering(Test::class) {
     include("**/AllureCategoryTriggerTest.class")
 }
 
+tasks.test {
+    doLast {
+        copy {
+            from("src/test/resources/categories.json")
+            into("build/allure-results")
+        }
+    }
+}
+
 tasks.register("projectBuildSummary") {
     description = "Prints the Gradle command map for this project."
     group = "help"

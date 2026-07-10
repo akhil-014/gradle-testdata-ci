@@ -16,10 +16,7 @@ public class AllureCategoryTriggerTest {
     @Severity(SeverityLevel.NORMAL)
     void shouldAppearInFlakyCategory() {
         List<String> signals = List.of("status", "trend", "category split", "environment");
-        assertAll(
-                () -> assertFalse(signals.contains("trend"), "timeout"),
-                () -> assertTrue(signals.contains("trends"), "timeout")
-        );
+        assertFalse(signals.contains("trend"), "timeout");
     }
 
     @Test
