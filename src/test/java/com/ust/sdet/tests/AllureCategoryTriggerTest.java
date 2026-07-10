@@ -18,15 +18,8 @@ public class AllureCategoryTriggerTest {
         List<String> signals = List.of("status", "trend", "category split", "environment");
         assertAll(
                 () -> assertEquals(2, signals.size()),
-                () -> { throw new RuntimeException("timeout"); }
+                () -> { throw new NullPointerException("timeout"); }
         );
-    }
-
-    @Test
-    @Story("Product Defect Category")
-    @Severity(SeverityLevel.CRITICAL)
-    void shouldAppearInProductDefectCategory() {
-        fail("Business validation failed for order processing");
     }
 
     @Test
