@@ -1,0 +1,8 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Environment metadata answers which browser, base URL and build produced the report.","4","environmentTemplateCarriesRunContext()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.AllureReportInsightTest","com.ust.sdet.tests.AllureReportInsightTest","environmentTemplateCarriesRunContext"
+"","19","shouldAppearInFlakyCategory()","","2026-07-10","failed","2026-07-10","","com.ust.sdet.tests.AllureCategoryTriggerTest","com.ust.sdet.tests.AllureCategoryTriggerTest","shouldAppearInFlakyCategory"
+"The leadership view is the overview page once categories, history, severity and environment","3","executiveViewNeedsFourSignals()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.AllureReportInsightTest","com.ust.sdet.tests.AllureReportInsightTest","executiveViewNeedsFourSignals"
+"","117","createsOrder()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","createsOrder"
+"Categories split flaky, test and product failures so each bucket has an error","46","categoriesSpecificFlakyRuleBeforeGenericBuckets()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.AllureReportInsightTest","com.ust.sdet.tests.AllureReportInsightTest","categoriesSpecificFlakyRuleBeforeGenericBuckets"
+"","31","shouldAppearInBrokenCategory()","","2026-07-10","broken","2026-07-10","","com.ust.sdet.tests.AllureCategoryTriggerTest","com.ust.sdet.tests.AllureCategoryTriggerTest","shouldAppearInBrokenCategory"
+"","80","countsOrders()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","countsOrders"
