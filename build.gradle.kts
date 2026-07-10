@@ -74,7 +74,7 @@ tasks.test {
     description = "Runs the main Selenium/JUnit regression tests."
     group = "verification"
     useJUnitPlatform()
-    include("**/OrderTest.class", "**/SmokeTest.class", "**/AllureReportInsightTest.class")
+    include("**/OrderTest.class", "**/SmokeTest.class", "**/AllureReportInsightTest.class", "**/AllureCategoryTriggerTest.class")
     maxParallelForks = 1
 }
 
@@ -102,6 +102,14 @@ val AllureReportInsightTest by tasks.registering(Test::class) {
     include("**/AllureReportInsightTest.class")
 }
 
+val AllureCategoryTriggerTest by tasks.registering(Test::class) {
+    description = "W6D4 - Overnight"
+    group = "verification"
+    useProjectTestClasses()
+    useJUnitPlatform()
+    include("**/AllureCategoryTriggerTest.class")
+}
+
 tasks.register("projectBuildSummary") {
     description = "Prints the Gradle command map for this project."
     group = "help"
@@ -114,6 +122,7 @@ tasks.register("projectBuildSummary") {
             Gradle order test: ./gradlew OrderTest
             Gradle smoke: ./gradlew SmokeTest
             Gradle report: ./gradlew AllureReportInsightTest
+            Gradle category report: ./gradlew AllureCategoryTriggerTest
             """.trimIndent()
         )
     }

@@ -59,6 +59,9 @@ jobs:
       - name: Run Allure Report Test
         run: ./gradlew AllureReportInsightTest
 
+      - name: Run Allure Category Trigger Test
+        run: ./gradlew AllureCategoryTriggerTest
+
       - name: Verify Allure results were generated
         run: |
           if [ ! -d build/allure-results ] || [ -z "$(ls -A build/allure-results 2>/dev/null)" ]; then
