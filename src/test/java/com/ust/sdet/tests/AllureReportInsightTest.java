@@ -31,7 +31,7 @@ public class AllureReportInsightTest {
         assertTrue(flakyIndex>=0,"Flaky category must exist");
         assertTrue(testDefectIndex > flakyIndex,"Specific flaky rule must run before gen");
         assertTrue(productDefectIndex > flakyIndex ,"Specific flaky rule must fun before");
-        assertFalse(categories.contains("\"flaky\": true"));
+        assertTrue(categories.contains("\"flaky\": true"));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class AllureReportInsightTest {
         assertTrue(lines.stream().anyMatch(line -> line.startsWith("Browser=")));
         assertTrue(lines.stream().anyMatch(line -> line.startsWith("BaseURL=")));
         assertTrue(lines.stream().anyMatch(line -> line.startsWith("Build=")));
-        assertFalse(lines.stream().anyMatch(line -> line.startsWith("OS=")));
+        assertTrue(lines.stream().anyMatch(line -> line.startsWith("OS=")));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class AllureReportInsightTest {
 
         assertEquals(4, signals.size());
         assertTrue(signals.contains("trend"));
-        assertFalse(signals.contains("category split"));
+        assertTrue(signals.contains("category split"));
 
     }
 

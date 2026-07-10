@@ -13,7 +13,7 @@ public class AllureCategoryTriggerTest {
     @Story("Flaky Category")
     @Severity(SeverityLevel.NORMAL)
     void shouldAppearInFlakyCategory() {
-        fail("timeout while waiting for element to become clickable");
+        throw new RuntimeException("timeout");
     }
 
     @Test
