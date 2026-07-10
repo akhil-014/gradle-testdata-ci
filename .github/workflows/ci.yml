@@ -56,8 +56,8 @@ jobs:
 
       - name: Verify Allure results were generated
         run: |
-          if [ ! -d target/allure-results ] || [ -z "$(ls -A target/allure-results 2>/dev/null)" ]; then
-            echo "::error::target/allure-results is empty. Add 'testImplementation(\"io.qameta.allure:allure-junit5:\$allureVersion\")' to build.gradle.kts."
+          if [ ! -d build/allure-results ] || [ -z "$(ls -A build/allure-results 2>/dev/null)" ]; then
+            echo "::error::build/allure-results is empty. Add 'testImplementation(\"io.qameta.allure:allure-junit5:\$allureVersion\")' to build.gradle.kts."
             exit 1
           fi
           echo "Found $(ls build/allure-results | wc -l) files in allure-results"
