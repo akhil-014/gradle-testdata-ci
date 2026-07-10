@@ -43,7 +43,7 @@ dependencies {
     testImplementation("org.flywaydb:flyway-core:$flywayVersion")
     testImplementation("org.flywaydb:flyway-mysql:$flywayVersion")
     testImplementation("com.mysql:mysql-connector-j:$mysqlVersion")
-    testImplementation("io.qameta.allure:allure-junit5")
+    testImplementation("io.qameta.allure:allure-junit5:${allureVersion}")
 }
 
 tasks.withType<JavaCompile>().configureEach {
