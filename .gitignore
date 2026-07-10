@@ -13,7 +13,7 @@ gradle/wrapper/gradle-wrapper.jar
 target/
 
 ### IntelliJ IDEA ###
-**/.idea/
+**/.idea/   q
 *.jar
 **/*.jar
 .idea/

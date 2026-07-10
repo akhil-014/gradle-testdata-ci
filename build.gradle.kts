@@ -43,6 +43,7 @@ dependencies {
     testImplementation("org.flywaydb:flyway-core:$flywayVersion")
     testImplementation("org.flywaydb:flyway-mysql:$flywayVersion")
     testImplementation("com.mysql:mysql-connector-j:$mysqlVersion")
+    testImplementation("io.qameta.allure:allure-junit5")
 }
 
 tasks.withType<JavaCompile>().configureEach {
@@ -72,7 +73,7 @@ tasks.test {
     description = "Runs the main Selenium/JUnit regression tests."
     group = "verification"
     useJUnitPlatform()
-    include("**/OrderTest.class", "**/SmokeTest.class")
+    include("**/OrderTest.class", "**/SmokeTest.class", "**/AllureReportInsightTest.class")
     maxParallelForks = 1
 }
 
@@ -92,6 +93,14 @@ val OrderTest by tasks.registering(Test::class) {
     include("**/OrderTest.class")
 }
 
+val AllureReportInsightTest by tasks.registering(Test::class) {
+    description = "W6D4 - Overnight"
+    group = "verification"
+    useProjectTestClasses()
+    useJUnitPlatform()
+    include("**/AllureReportInsightTest.class")
+}
+
 tasks.register("projectBuildSummary") {
     description = "Prints the Gradle command map for this project."
     group = "help"
@@ -101,8 +110,9 @@ tasks.register("projectBuildSummary") {
             Project Build Summary
             Gradle compile: ./gradlew clean testClasses
             Gradle main tests: ./gradlew test
-            Gradle order test: ./gradlew orderTest
-            Gradle smoke: ./gradlew smokeTest
+            Gradle order test: ./gradlew OrderTest
+            Gradle smoke: ./gradlew SmokeTest
+            Gradle report: ./gradlew AllureReportInsightTest
             """.trimIndent()
         )
     }

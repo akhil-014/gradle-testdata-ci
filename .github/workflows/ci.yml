@@ -50,3 +50,60 @@ jobs:
             -Ddb.url=jdbc:mysql://localhost:3306/testorderdb
             -Ddb.user=root
             -Ddb.password=admin
+
+      - name: Run Allure Report Test
+        run: ./gradlew AllureReportInsightTest
+
+      - name: Verify Allure results were generated
+        run: |
+          if [ ! -d build/allure-results ] || [ -z "$(ls -A build/allure-results 2>/dev/null)" ]; then
+            echo "::error::build/allure-results is empty. Add 'testImplementation(\"io.qameta.allure:allure-junit5:\$allureVersion\")' to build.gradle.kts."
+            exit 1
+          fi
+          echo "Found $(ls build/allure-results | wc -l) files in allure-results"
+
+      - name: Get previous Allure history
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Build Allure report with history
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: build/allure-results
+          allure_history: allure-history
+          allure_report: allure-report
+          keep_reports: 20
+          gh_pages: gh-pages
+
+      - name: Remove nested .git left inside allure-history
+        if: always()
+        run: sudo rm -rf allure-history/.git
+
+      - name: Verify Allure history was populated
+        run: |
+          if [ ! -d allure-history ] || [ -z "$(ls -A allure-history 2>/dev/null)" ]; then
+            echo "::error::allure-history is empty after report generation. Check the 'Build Allure report' step logs above."
+            exit 1
+          fi
+          echo "allure-history contains $(find allure-history -type f | wc -l) files"
+
+      - name: Publish Allure report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
+
+      - name: Fail job if tests failed
+        if: always()
+        run: |
+          if [ -d build/reports/tests ] && grep -rl "FAILED" build/reports/tests --include="*.html" > /dev/null 2>&1; then
+            echo "Tests failed - see Allure report link above"
+            exit 1
+          fi
