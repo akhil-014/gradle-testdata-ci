@@ -1,4 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","62","countsOrders()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","countsOrders"
-"Categories split flaky, test and product failures so each bucket has an error","41","categoriesSpecificFlakyRuleBeforeGenericBuckets()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.AllureReportInsightTest","com.ust.sdet.tests.AllureReportInsightTest","categoriesSpecificFlakyRuleBeforeGenericBuckets"
-"","106","createsOrder()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","createsOrder"
+"","81","createsOrder()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","createsOrder"
+"","65","countsOrders()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","countsOrders"
+"Categories split flaky, test and product failures so each bucket has an error","19","categoriesSpecificFlakyRuleBeforeGenericBuckets()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.AllureReportInsightTest","com.ust.sdet.tests.AllureReportInsightTest","categoriesSpecificFlakyRuleBeforeGenericBuckets"
