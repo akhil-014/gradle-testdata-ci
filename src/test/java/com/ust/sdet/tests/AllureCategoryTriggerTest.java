@@ -15,11 +15,14 @@ public class AllureCategoryTriggerTest {
     @Story("Flaky Category")
     @Severity(SeverityLevel.NORMAL)
     void shouldAppearInFlakyCategory() {
-        List<String> signals = List.of("status", "trend", "category split", "environment");
-        assertAll(
-                () -> assertEquals(2, signals.size()),
-                () -> { throw new NullPointerException("timeout"); }
-        );
+        throw new RuntimeException("timeout");
+    }
+
+    @Test
+    @Story("Product Defect Category")
+    @Severity(SeverityLevel.CRITICAL)
+    void shouldAppearInProductDefectCategory() {
+        fail("Business validation failed for order processing");
     }
 
     @Test
