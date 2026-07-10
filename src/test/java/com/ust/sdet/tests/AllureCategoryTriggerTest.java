@@ -3,7 +3,9 @@ package com.ust.sdet.tests;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @Epic("Framework Hardening")
 @Feature("Allure Categories Demo")
@@ -13,7 +15,11 @@ public class AllureCategoryTriggerTest {
     @Story("Flaky Category")
     @Severity(SeverityLevel.NORMAL)
     void shouldAppearInFlakyCategory() {
-        throw new RuntimeException("timeout");
+        List<String> signals = List.of("status", "trend", "category split", "environment");
+        assertAll(
+                () -> assertEquals(2, signals.size()),
+                () -> { throw new RuntimeException("timeout"); }
+        );
     }
 
     @Test
