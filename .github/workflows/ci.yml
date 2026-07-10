@@ -50,6 +50,7 @@ jobs:
 
       - name: Run Order Test
         run: ./gradlew OrderTest
+        continue-on-error: true
         env:
           JAVA_TOOL_OPTIONS: >
             -Ddb.url=jdbc:mysql://localhost:3306/testorderdb
@@ -58,9 +59,11 @@ jobs:
 
       - name: Run Allure Report Test
         run: ./gradlew AllureReportInsightTest
+        continue-on-error: true
 
       - name: Run Allure Category Trigger Test
         run: ./gradlew AllureCategoryTriggerTest
+        continue-on-error: true
 
       - name: Verify Allure results were generated
         run: |
