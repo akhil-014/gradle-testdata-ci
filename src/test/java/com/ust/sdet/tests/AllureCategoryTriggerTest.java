@@ -15,7 +15,7 @@ public class AllureCategoryTriggerTest {
     @Story("Flaky Category")
     @Severity(SeverityLevel.NORMAL)
     void shouldAppearInFlakyCategory() {
-        throw new RuntimeException("timeout");
+        fail("timeout");
     }
 
     @Test
