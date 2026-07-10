@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","29","shouldAppearInBrokenCategory()","","2026-07-10","broken","2026-07-10","","com.ust.sdet.tests.AllureCategoryTriggerTest","com.ust.sdet.tests.AllureCategoryTriggerTest","shouldAppearInBrokenCategory"
+"","19","shouldAppearInProductDefectCategory()","","2026-07-10","failed","2026-07-10","","com.ust.sdet.tests.AllureCategoryTriggerTest","com.ust.sdet.tests.AllureCategoryTriggerTest","shouldAppearInProductDefectCategory"
+"","7","shouldAppearInFlakyCategory()","","2026-07-10","broken","2026-07-10","","com.ust.sdet.tests.AllureCategoryTriggerTest","com.ust.sdet.tests.AllureCategoryTriggerTest","shouldAppearInFlakyCategory"
