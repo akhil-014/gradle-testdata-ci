@@ -6,11 +6,11 @@
     "flaky": true
   },
   {
-    "name": "test defects {broken}",
+    "name": "Test defects {broken}",
     "matchedStatuses": ["broken"]
   },
   {
-    "name": "product defects",
+    "name": "Product defects",
     "matchedStatuses": ["failed"]
   }
 ]
