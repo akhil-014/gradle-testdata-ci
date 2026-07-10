@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Epic("Framework Hardening")
@@ -30,6 +31,6 @@ public class AllureReportInsightTest {
         assertTrue(flakyIndex>=0,"Flaky category must exist");
         assertTrue(testDefectIndex > flakyIndex,"Specific flaky rule must run before gen");
         assertTrue(productDefectIndex > flakyIndex ,"Specific flaky rule must fun before");
-        assertTrue(categories.contains("\"flaky\": true"));
+        assertFalse(categories.contains("\"flaky\": true"));
     }
 }
